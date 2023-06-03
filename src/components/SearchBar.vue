@@ -1,7 +1,7 @@
 <template>
 <form @submit.prevent="searchPosts()">
-<input class="w-150px" type="text" v-model="search" placeholder="serach here">
-<button type="submit">Search</button>
+<input class="w-150px rounded mt-3" type="text" v-model="search" placeholder="serach here">
+<button class="my-2 btn btn-primary rounded" type="submit">Search</button>
 </form>
 </template>
 

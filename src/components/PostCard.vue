@@ -1,20 +1,22 @@
 <template>
     <!-- <div class="row">
         <div class="col-md-3 post"> -->
-            <div v-if="postProp.id" class="post p-4">
+            <div v-if="postProp.id" class="post rounded p-4">
 
-                <div class="col-6 d-flex">
+                <!-- <div class="col-6"> -->
+                    <div class="d-flex">
                     <router-link :to="{name: 'Profile', params: { id: postProp.creatorId }}">
                     <img class="img-fluid rounded-circle post-img" :src="postProp.creator.picture" alt="">
                 </router-link>
-                    <p class="px-4 py-5">{{ postProp.creator.name }}</p>
+                    <p class="pt-4 px-4">{{ postProp.creator.name }}</p>
                 </div>
-                <p>{{ postProp.body }}</p>
+                <!-- </div> -->
+                <p class="pt-5">{{ postProp.body }}</p>
 
-                <img class="img-fluid" :src="postProp.imgUrl" alt="">
-                <div class="d-flex justify-content-between">
-                <p @click="postLikes(postProp.id)" class="fs-1">👍<span id="like">{{ postProp.likeIds.length }}</span></p>
-                <p @click="deletPost(postProp.id)" v-if="postProp.creator.id == account.id" class="fs-2 align-items-end"><i class="mdi mdi-delete-outline"></i></p>
+                <img class="img-fluid rounded photo" :src="postProp.imgUrl" alt="">
+                <div class="d-flex justify-content-between pt-4">
+                <p @click="postLikes(postProp.id)" class="fs-1">👍<span class="fs-3 px-2 " id="like">{{ postProp.likeIds.length }}</span></p>
+                <p @click="deletPost(postProp.id)" v-if="postProp.creator.id == account.id" class="fs-3 align-items-end "><i class="mdi mdi-delete-outline"></i></p>
             </div>
             </div>
         <!-- </div>
@@ -66,13 +68,21 @@ export default {
 <style lang="scss" scoped>
  .post{
       background-color: aliceblue;
-      border:1px 2px 0 0 black;
+      border-bottom: 2px solid black;
+      border-right: 2px solid black;
+      border-top: 1px solid black;
+      border-left: 1px solid black;
     //   height: 400px;
 
     }
     .post-img{
-        height: 100px;
+        height: 70px;
         aspect-ratio: 1/1;
         padding-top:3px;
+    }
+    .photo{
+        height: 220px;
+        width: 400px;
+
     }
 </style>

@@ -9,25 +9,38 @@
     </div>
 
 <!-- I should make a row for creating post text area and another row for posts to draw  -->
-    <div class="col-6 py-1 px-2 " v-for="p in posts" :key="p.id">
-      <div>
-        <!-- <img :src="Account.picture" alt=""> -->
-        <textarea name="body" type="text" class="form-control" id="body" cols="30" rows="10" placeholder="whats new!" v-model="editable.body"></textarea>
-        <div class="d-flex justify-content-between"></div>
-        <form @submit="createPost" >
-        <i class="mdi mdi-file-multiple"></i>Photo/Video
-        <input type="url" v-model="editable.imgUrl">
-        <button>POST</button>
-      </form>
+<!-- <img :src="Account.picture" alt=""> -->
+<div class="col-6">
+  <div class="row">
+    <div class="col-">
+<textarea name="body" type="text" class="form-control mt-2" id="body" cols="20" rows="5" placeholder="whats new!" v-model="editable.body"></textarea>
+<div class="d-flex justify-content-between"></div>
+<form @submit="createPost" >
+  <div class="d-flex justify-content-between">
+    <div>
+  <i class="mdi mdi-file-multiple"></i>Photo/Video
+  <input type="url" class="rounded" v-model="editable.imgUrl">
+</div>
+  <button class="rounded-top mx-3 btn btn-primary">POST</button>
+</div>
+</form>
+</div>
+</div>
+
+<div class="row">
+<div class="col- py-1 px-2 " v-for="p in posts" :key="p.id">
+  <div>
 
     <!-- <card class="post"> -->
     <PostCard :postProp="p" />
+  </div>
+</div>
+</div>
+</div>
   <!-- </card> -->
-    </div>
     <!-- <div class="col-3">
       i will put the adds here
     </div> -->
-  </div>
 </div>
  </div>
 </template>
