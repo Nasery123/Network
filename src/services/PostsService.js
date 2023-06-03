@@ -11,7 +11,10 @@ class PostsService {
     async getPosts() {
         const res = await api.get('api/posts')
         logger.log('[HERE IS YOUR POSTS]', res.data.posts)
+        logger.log('[HERE IS LINK FOR YOUR BUTTONS', res.data)
         AppState.posts = res.data.posts.map(p => new Post(p))
+        AppState.olderPage = res.data.older;
+        AppState.newerPage = res.data.newer;
     }
     async createPost(formData) {
         const res = await api.post('api/posts', formData)
@@ -48,10 +51,17 @@ class PostsService {
         AppState.posts = res.data.posts.map(p => new Post(p))
     }
 
-    async getAdds() {
 
-        const res = await api.get('api/ads')
-        logger.log('[HERE IS YOUR ADDS]', res.data)
+
+    async changePage(url) {
+        const res = await api.get(url)
+        AppState.posts = res.data.posts;
+
+        AppState.olderPage = res.data.older;
+
+        logger.log('[HERE IS THE OLDER PAGE', res.data.older)
+        AppState.newerPage = res.data.newer;
+        logger.log('[HERE IS THE NEWER PAGE', res.data.newer)
     }
 
 }

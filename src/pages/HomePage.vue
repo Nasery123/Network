@@ -36,6 +36,8 @@
   </div>
 </div>
 </div>
+<button :disabled="!newer" @click="changePage(newer)" class="btn btn-primary">NEWER</button>
+ <button :disabled="!older" @click="changePage(older)" class="btn btn-primary">OLDER</button>
 </div>
   <!-- </card> -->
     <!-- <div class="col-3">
@@ -43,6 +45,7 @@
     </div> -->
 </div>
  </div>
+
 </template>
 
 <script>
@@ -78,6 +81,8 @@ export default {
     return {
       editable,
       posts: computed(() => AppState.posts),
+      newer: computed(()=> AppState.newerPage),
+      older: computed(() => AppState.olderPage),
 
       async createPost(){
         try {
@@ -87,6 +92,15 @@ export default {
           editable.value = {}
 
 
+        } catch (error) {
+          Pop.error(error)
+          logger.log(error)
+        }
+      },
+      async changePage(url){
+        try {
+
+          await postsService.changePage(url)
         } catch (error) {
           Pop.error(error)
           logger.log(error)
