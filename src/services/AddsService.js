@@ -2,7 +2,7 @@ class AddsService {
 
     async getAdds() {
 
-        const res = await api.get('/api/ads')
+        const res = await api.get('api/ads')
         logger.log('[HERE IS YOUR ADDS]', res.data)
     }
 
