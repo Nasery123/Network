@@ -27,6 +27,8 @@
 
 
 </form>
+<!-- {{ account.name }}
+{{ account.email }} -->
 
 
 

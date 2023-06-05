@@ -30,6 +30,7 @@ const routes = [
   {
     path: '/ads',
     name: 'Add',
+
     componenet: loadPage('AddPage'),
 
     // console.log('here is what you want')

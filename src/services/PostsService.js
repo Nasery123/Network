@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { Account } from "../models/Account.js"
+import { Add } from "../models/Add.js"
 import { Post } from "../models/Post.js"
 import { logger } from "../utils/Logger.js"
 import Pop from "../utils/Pop.js"
@@ -62,6 +63,11 @@ class PostsService {
         logger.log('[HERE IS THE OLDER PAGE', res.data.older)
         AppState.newerPage = res.data.newer;
         logger.log('[HERE IS THE NEWER PAGE', res.data.newer)
+    }
+    async getAdds() {
+        const res = await api.get('api/ads')
+        logger.log('[HERE IS ADDS FOR YOUR PAGE', res.data)
+        AppState.add = res.data.map(a => new Add(a))
     }
 
 }

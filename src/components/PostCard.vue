@@ -13,7 +13,7 @@
                 <!-- </div> -->
                 <p class="pt-5">{{ postProp.body }}</p>
 
-                <img class="img-fluid rounded photo" :src="postProp.imgUrl" alt="">
+                <img class="img-fluid rounded photo" :src="postProp.imgUrl" alt="the picture is not available">
                 <div class="d-flex justify-content-between pt-4">
                 <p @click="postLikes(postProp.id)" class="fs-1">👍<span class="fs-3 px-2 " id="like">{{ postProp.likeIds.length }}</span></p>
                 <p @click="deletPost(postProp.id)" v-if="postProp.creator.id == account.id" class="fs-3 align-items-end "><i class="mdi mdi-delete-outline"></i></p>
@@ -42,6 +42,11 @@ export default {
         return {
             async deletPost(id){
                 try {
+
+                    const yes = await Pop.confirm("do you want to delet this Post")
+                        if (!yes) {
+                        return
+                    }
                     await postsService.deletPost(id)
                 } catch (error) {
                     Pop.error(error)
