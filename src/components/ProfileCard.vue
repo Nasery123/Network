@@ -11,7 +11,7 @@
       <p v-if="profile.socialPlatform">
 
         <a :href="profile.socialPlatform" target="_blank" rel="noopener">
-          <i class="mdi mdi-social-distance-6-feet"></i>
+          <i class="mdi mdi-github"></i>
         </a>
 
       </p>
@@ -43,7 +43,7 @@ export default {
     props:{
         profile: {type:[Profile, Account], required:true}
     },
-    setup(prop){
+    setup(props){
         // const route = useRoute()
 
 

@@ -1,6 +1,7 @@
 <template>
   <div class="about text-center">
    <div class="container-fluid">
+    <div class="row">
     <div class="col-md-3">
 
       <ProfileCard :profile="account" />
@@ -10,10 +11,13 @@
     <div class="col-md-3 m-auto">
       <AccountForm />
     </div>
+
+  </div>
     </div>
    </div>
-    <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
+
+    <!-- <img class="rounded" :src="account.picture" alt="" />
+    <p>{{ account.email }}</p> -->
 
 </template>
 
