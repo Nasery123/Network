@@ -10,5 +10,6 @@ export const AppState = reactive({
   add: [],
   newerPage: null,
   olderPage: null,
+  profile: null,
 
 })

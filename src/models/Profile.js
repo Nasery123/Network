@@ -7,6 +7,7 @@ export class Profile {
         this.coverImg = data.coverImg
         this.bio = data.bio
         this.socialPlatform = data.github
+        this.status = data.status
 
     }
 }

@@ -27,6 +27,7 @@ class PostsService {
 
         AppState.posts = AppState.posts.filter(p => p.id != id)
     }
+
     async getPostsByProfile(id) {
         AppState.posts = []
         const res = await api.get('api/posts', {
@@ -37,8 +38,11 @@ class PostsService {
         })
         logger.log('[HERE IS YOUR DATA', res.data.results)
         AppState.posts = res.data.posts.map(p => new Post(p))
+        AppState.olderPage = res.data.older;
+        AppState.newerPage = res.data.newer;
 
     }
+
     async postLikes(id) {
 
         const res = await api.post(`api/posts/${id}/like`)
@@ -56,7 +60,7 @@ class PostsService {
 
     async changePage(url) {
         const res = await api.get(url)
-        AppState.posts = res.data.posts;
+        AppState.posts = res.data.posts.map(p => new Post(p));
 
         AppState.olderPage = res.data.older;
 
@@ -73,6 +77,12 @@ class PostsService {
 
         const res = await api.put(`api/posts/${id}`)
         AppState.posts = new Post(res.data)
+
+    }
+    async getProfileById(id) {
+        const res = await api.get('api/profiles/' + id)
+        AppState.profile = res.data
+
 
     }
 

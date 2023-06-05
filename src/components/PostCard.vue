@@ -14,8 +14,8 @@
                 </router-link>
             </div>
                     <p class="pt-4 px-4">{{ postProp.creator.name }}</p>
-                    <p>{{ postProp.creator.email }}</p>
-                    <p>{{ postProp.bio }}</p>
+                    <!-- <p>{{ postProp.creator.email }}</p> -->
+                    <!-- <p>{{ postProp.bio }}</p> -->
                     <!-- <img :src="postProp.creator.coverImg" alt=""> -->
                     <a :href="postProp.creator.socialPlatform"></a>
                     <!-- <p>{{ postProp. }}</p> -->
@@ -24,7 +24,7 @@
                 <button class="btn btn-primay pr-5" @click="editPost(id)" v-if="postProp.creator.id == account.id">EDIT</button>
                 <!-- </div> -->
             </div>
-            <p>{{ new Date().toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" }) }}</p>
+            <p>{{ postProp.date}} </p>
                 <p class="pt-5">{{ postProp.body }}</p>
 
                 <img class="img-fluid rounded photo" :src="postProp.imgUrl" alt="the picture is not available">
@@ -54,14 +54,14 @@ export default {
     },
     setup(){
         return {
-            async getDat(){
-                try {
-                    await postsService.getDate()
-                } catch (error) {
-                    Pop.error(error)
-                    logger.log(error)
-                }
-            },
+            // async getDat(){
+            //     try {
+            //         await postsService.getDate()
+            //     } catch (error) {
+            //         Pop.error(error)
+            //         logger.log(error)
+            //     }
+            // },
             async deletPost(id){
                 try {
 
