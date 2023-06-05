@@ -4,14 +4,18 @@
 <div>
     <ProfileCard  :profile="profile"/>
     <div class="d-flex justify-content-between">
-<button :disabled="!newer" @click="changePage(newer)" class="btn btn-primary">NEWER</button>
- <button :disabled="!older" @click="changePage(older)" class="btn btn-primary">OLDER</button>
-</div>
+
+
 </div>
 <div class="row">
     <div class="col-md-6" v-for="p in posts" :key="p.id">
     <PostCard :postProp="p" />
     </div>
+</div>
+<div class="d-flex justify-content-around">
+<button :disabled="!newer" @click="changePage(newer)" class="btn btn-primary">NEWER</button>
+ <button :disabled="!older" @click="changePage(older)" class="btn btn-primary">OLDER</button>
+</div>
 </div>
 </template>
 
