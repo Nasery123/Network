@@ -8,6 +8,7 @@ export class Post {
         this.likeIds = data.likeIds
         // this.olderPage = data.older
         // this.newerPage = data.newer
+        // this.data = data.data || new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })
 
 
 

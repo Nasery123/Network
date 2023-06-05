@@ -2,8 +2,8 @@
  <div class="container-fluid">
 
 
-  <div class="row">
-    <div class="col-3 first">
+  <div class="row network">
+    <div class="col-md-3 search first">
       <SearchBar />
 
     </div>
@@ -43,6 +43,7 @@
 </div>
   <!-- </card> -->
   <div class="col-3 third">
+    Adds:
     <div class="" v-for="a in add" :key="a.title">
       <div>
       <AddsCard :AddProp="a" />
@@ -132,6 +133,7 @@ export default {
   text-align: center;
   user-select: none;
 
+
   .home-card {
     width: 50vw;
 
@@ -144,6 +146,7 @@ export default {
     }
 
   }
+
 
 }
 </style>

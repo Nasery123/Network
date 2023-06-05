@@ -69,6 +69,13 @@ class PostsService {
         logger.log('[HERE IS ADDS FOR YOUR PAGE', res.data)
         AppState.add = res.data.map(a => new Add(a))
     }
+    async editPost(id) {
+
+        const res = await api.put(`api/posts/${id}`)
+        AppState.posts = new Post(res.data)
+
+    }
+
 
 }
 export const postsService = new PostsService()

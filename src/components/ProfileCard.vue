@@ -1,18 +1,23 @@
 <template>
-    <div class="col-3">
+    <div class="col-8">
         <div class="card">
     <div class="card-body">
       <div class="profile-card mb-2 text-center">
         <p class="text-center mb-0">
-          <img class="rounded-circle profile-picture" :src="profile.picture" :alt="profile.name">
+          <img class="rounded-circle img-fluid profile-picture" :src="profile.picture" :alt="profile.name">
+          <img class="rounded-circle img-fluid profile-picture" :src="profile.coverImg" :alt="profile.name">
         </p>
       </div>
       <p> <i class="mdi mdi-account"></i> <b>{{ profile.name }}</b></p>
-      <p v-if="profile.socialPlatform">
 
-        <a :href="profile.socialPlatform" target="_blank" rel="noopener">
-          <i class="mdi mdi-github"></i>
-        </a>
+
+
+
+      <p v-if="profile.socialPlatform">
+        {{ profile.socialPlatform }}
+        <i class="mdi mdi-github"></i>
+        <!-- <a :href="profile.socialPlatform" target="_blank" rel="noopener"> -->
+        <!-- </a> -->
 
       </p>
     </div>
@@ -49,7 +54,7 @@ export default {
 
         return {
 
-            coverImg:computed(() =>`url(${props.profile?.coverImg})`)
+            coverImg:computed(() =>`url(${props.Profile?.coverImg})`)
         }
     }
 }
