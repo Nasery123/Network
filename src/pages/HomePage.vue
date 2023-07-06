@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="sun">
 
-    <i class="mdi mdi-cloud" @click="toggleTheme()"></i>
+    <i class="mdi mdi-white-balance-sunny" @click="toggleTheme()"></i>
 
 
 
