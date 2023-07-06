@@ -1,13 +1,11 @@
 <template>
-<i>{{ AddProp.title }}</i>
-<img :src="AddProp.linkUrl" alt="">
-<img class="square img-fluid" :src="AddProp.tall" alt="">
+    <i>{{ AddProp.title }}</i>
+    <img :src="AddProp.linkUrl" alt="">
+    <img class="square img-fluid" :src="AddProp.tall" alt="">
 
-<img class="square img-fluid" :src="AddProp.square" alt="">
+    <img class="square add img-fluid elevation-5" :src="AddProp.square" alt="">
 
-<!-- {{ Addprop. }} -->
-
-
+    <!-- {{ Addprop. }} -->
 </template>
 
 
@@ -17,13 +15,13 @@ import { Add } from '../models/Add.js';
 import { AppState } from '../AppState.js';
 
 export default {
-    props:{
-        AddProp:{type:Add, required:true}
+    props: {
+        AddProp: { type: Add, required: true }
     },
-    setup(){
+    setup() {
         return {
 
-            add:computed(() => AppState.add)
+            add: computed(() => AppState.add)
         }
     }
 }
@@ -31,5 +29,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.add {
+    border-radius: 10px;
+}
 </style>
